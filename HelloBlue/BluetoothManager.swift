@@ -12,7 +12,19 @@ import CoreBluetooth
 class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var centralManager: CBCentralManager?
     var peripheral: CBPeripheral?
-        
+    
+    override init() {
+        super.init()
+        centralManager = CBCentralManager.init(delegate: self, queue: nil)
+        scanForPeripherals()
+    }
+    
+    func scanForPeripherals() {
+        if centralManager?.state == .poweredOn {
+            centralManager?.scanForPeripherals(withServices: nil, options: nil)
+        }
+    }
+    
     // MARK: Central Manager Delegate Methods
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -28,6 +40,7 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegat
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print(peripheral.name)
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
