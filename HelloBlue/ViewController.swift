@@ -14,8 +14,12 @@ class ViewController: UIViewController {
 
     @IBAction func scanButtonTapped(_ sender: Any) {
         bluetoothManager.scanForPeripherals()
-        
     }
+    
+    @IBAction func toggleLED(_ sender: Any) {
+        bluetoothManager.toggleLED()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()        // Do any additional setup after loading the view, typically from a nib.
     }

@@ -99,7 +99,7 @@
 				TargetAttributes = {
 					4CC6D6CF1E453A5A00519806 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = WNC2364L25;
+						DevelopmentTeam = G4HW4JEJP2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -265,7 +265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WNC2364L25;
+				DEVELOPMENT_TEAM = G4HW4JEJP2;
 				INFOPLIST_FILE = HelloBlue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BCN.HelloBlue;
@@ -278,7 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WNC2364L25;
+				DEVELOPMENT_TEAM = G4HW4JEJP2;
 				INFOPLIST_FILE = HelloBlue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BCN.HelloBlue;
@@ -306,6 +306,7 @@
 				4CC6D6E41E453A5A00519806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
