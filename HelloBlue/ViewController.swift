@@ -15,23 +15,9 @@ class ViewController: UIViewController {
     @IBAction func scanButtonTapped(_ sender: Any) {
         bluetoothManager.scanForPeripherals()
     }
-    
-    @IBAction func toggleLED(_ sender: Any) {
+ 
+    @IBAction func toggleLEDButtonTapped(_ sender: Any) {
         bluetoothManager.toggleLED()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()        // Do any additional setup after loading the view, typically from a nib.
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        bluetoothManager.scanForPeripherals()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
