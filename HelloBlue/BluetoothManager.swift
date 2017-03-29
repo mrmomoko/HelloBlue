@@ -82,12 +82,9 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegat
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("Peripheral did update value")
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("Peripheral did write value: \(characteristic.value)")
-        if let error = error { print(error) }
     }
 }
 
