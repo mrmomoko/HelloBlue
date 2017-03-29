@@ -13,23 +13,6 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegat
     var centralManager : CBCentralManager?
     var peripheral : CBPeripheral?
     
-    var ledCharacteristic : CBCharacteristic?
-    var lightState = false
-    
-    // Commands for BMDWare
-    
-    let offCommand : [UInt8] = [0x55]
-    let onCommand  : [UInt8] = [0x54, 0x09, 0x00]
-    let ledCharactertisticUUID = CBUUID.init(string:"2413B43F-707F-90BD-2045-2AB8807571B7")
- 
-    // Commands for EvalDemo
-    /*
-    let offCommand : [UInt8] = [0x00, 0x00, 0x00]
-    let onCommand  : [UInt8] = [0xff, 0xff, 0xff]
-    let ledCharactertisticUUID = CBUUID.init(string:"50DB1525-418D-4690-9589-AB7BE9E22684")
-    */
-    
-    
     override init() {
         super.init()
         // Set self as the delegate of the CentralManager
@@ -48,11 +31,6 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegat
     }
     
     func toggleLED() {
-        let command : [UInt8] = lightState ? offCommand : onCommand
-        if let ledChar = ledCharacteristic {
-            peripheral?.writeValue(Data.init(bytes: command), for: ledChar, type: .withoutResponse) // for EvalDemo, must be .withoutResponse
-            lightState = !lightState
-        }
     }
     
     // MARK: Central Manager Delegate Methods
@@ -101,13 +79,6 @@ class BluetoothManager : NSObject, CBCentralManagerDelegate, CBPeripheralDelegat
 
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print("Peripheral did Discover Characteristics: \(service.characteristics!) \n")
-
-        for char in service.characteristics! as [CBCharacteristic] {
-            if char.uuid == ledCharactertisticUUID {
-                print("Set LED Charactertistic")
-                ledCharacteristic = char
-            }
-        }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
